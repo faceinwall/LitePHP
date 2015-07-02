@@ -11,6 +11,10 @@ $app->addRoute('/', function(){
 	$this->response();
 });
 
+$app->addRoute('/@name/@id', function($name, $id){
+    echo "hello, $name ($id)!";
+});
+
 $app->run();
 
 ```
@@ -22,3 +26,27 @@ LitePHP 需要PHP5.4以上
 ### License
 
 MIT license许可.
+
+###\.安装
+下载litePHP安装包
+
+###\.配置您的服务器
+
+Apache*, 可以如下配置:
+
+```
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+```
+
+对于 *Nginx*:
+
+```
+server {
+    location / {
+        try_files $uri $uri/ /index.php;
+    }
+}
+```
