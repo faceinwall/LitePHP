@@ -1,4 +1,4 @@
-###关于LitePHP
+### 关于LitePHP
 LitePHP是一个简单, 轻量, 快速, 可扩展的框架.它可以让快速的建一个REST风格的应用程序.
 
 ```php
@@ -10,4 +10,15 @@ $app->addRoute('/', function(){
 
 	$this->response();
 });
+
+$app->run();
+
 ```
+
+### Requirements
+
+LitePHP 需要PHP5.4以上
+
+### License
+
+MIT license许可.
