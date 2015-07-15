@@ -25,7 +25,7 @@ namespace lite;
  * @package		lite	
  * @author		Linhaoye
  */
-class BbAction{
+class DbAction{
 
 	/*
 	 * @the errors array
@@ -363,14 +363,4 @@ class BbAction{
 	}
 }
 // end of class
-
-$dbact = new DbAction();
-$dbact->setDb(new Db([]));
-$dbact->select("users");
-$dbact->where("name", "kate");
-$dbact->andClause("age", 3);
-$dbact->andClause("sex", 2);
-$dbact->orderBy("id");
-$dbact->query();
-
 ?>

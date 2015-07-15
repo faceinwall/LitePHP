@@ -98,6 +98,4 @@ class Db
 		}
 	}
 }
-
-$db = new Db(['db_type'=> 'mysql']);
  ?>
