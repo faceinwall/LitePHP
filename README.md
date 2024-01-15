@@ -7,8 +7,8 @@ require 'lite/Lite.php';
 $app = new lite\App();
 
 $app->addRoute('/', function(){
-    $this->body = "<h4>hello world!</h4>";
-    $this->response();
+    $body = "<h4>hello world!</h4>";
+    return $body;
 });
 
 $app->addRoute('/@name/@id', function($name, $id){
