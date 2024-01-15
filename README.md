@@ -4,11 +4,11 @@ LitePHP是一个简单, 轻量, 快速, 可扩展的框架.它可以让快速的
 ```php
 require 'lite/Lite.php';
 
-$app->addRoute('/', function(){
-	
-	$this->body = "<h4>hello world!</h4>";
+$app = new lite\App();
 
-	$this->response();
+$app->addRoute('/', function(){
+    $this->body = "<h4>hello world!</h4>";
+    $this->response();
 });
 
 $app->addRoute('/@name/@id', function($name, $id){
@@ -27,10 +27,10 @@ LitePHP 需要PHP5.4以上
 
 MIT license许可.
 
-###安装
+### 安装
 下载litePHP安装包
 
-###配置您的服务器
+### 配置您的服务器
 
 Apache*, 可以如下配置:
 
@@ -46,7 +46,9 @@ RewriteRule ^(.*)$ index.php [QSA,L]
 ```
 server {
     location / {
-        try_files $uri $uri/ /index.php;
+        if (!-e $request_filename ) {
+            rewrite ^/(.*)$ /index.php/$1 last;
+        }
     }
 }
 ```
